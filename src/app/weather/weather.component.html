@@ -1,0 +1,32 @@
+<div id="divWeatherMain">
+  <form [formGroup]="cityForm" class="gap-3 mb-3 row g-3">
+    <div class="">
+      <input
+        #city
+        (keyup.enter)="onSubmit(city.value)"
+        formControlName="city"
+        type="text"
+        class="form-control city-input"
+        required
+        placeholder="type city name and press enter ..."
+      />
+    </div>
+  </form>
+  <div class="weatherDetails" *ngIf="targetWeather != null">
+    <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 10px">
+      {{ targetWeather.name }}
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 32px; margin-top: 5px">
+      {{ targetWeather.temp_celcius }}°
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 12px">
+      {{ targetWeather.temp_min }}° / {{ targetWeather.temp_max }}°
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 12px">
+      Feels Like: {{ targetWeather.temp_feels_like }}°
+    </div>
+    <div class="weatherWidgetRow" style="font-size: 12px">
+      Humidity: {{ targetWeather.main.humidity }}%
+    </div>
+  </div>
+</div>
